@@ -1,2 +1,4 @@
-# cst336f18lab03
+# something
 CST 336 Lab 03
+
+Read this!!!

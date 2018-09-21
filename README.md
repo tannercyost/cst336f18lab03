@@ -1,3 +1,6 @@
+# some more stuff
+this is new
+
 # something
 CST 336 Lab 03
 

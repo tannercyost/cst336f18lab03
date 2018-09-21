@@ -1,6 +1,8 @@
 # something
 CST 336 Lab 03
 
+seven years ago
+
 Read this!!!
 
 # lol i can code
@@ -10,11 +12,14 @@ lol tanner cant
 code
 hahahaha
 
-
-:(
+does this code conflict?
+:) why so sad
 
 
 
 this message is secrete
 
 ew
+
+
+four score and

@@ -35,9 +35,23 @@
             array_splice($cards, $index, 1);
         }
         
-        for ($i = 0; $i<$numPlayers; $i++)
+        
+        $player1 = array();
+        $player2 = array();
+        $player3 = array();
+        $player4 = array();
+        
+        for ($i = 1; $i<=$numPlayers; $i++)
         {
-            ${'player'.$i+1} = array();
+            ${'player'.$i.'total'} = 0;
+            while ('player'.$i.'total' < 42)
+            {
+                $tempCard =  array_pop($shuffledCards);
+                array_push(${'player'.$i}, $tempCard);
+                ${'player'.$i.'total'} += $tempCard["value"];
+            }
+            print(${'player'.$i.'total'});
+            var_dump(${'player'.$i});
         }
     }
 ?>

@@ -6,15 +6,12 @@
     $shuffledCards = array();
     $playerScores = array();
     $numPlayers = 4;
+    $players = array("Who", "What", "I Don't Know", "Why");
     
     // setup();
 
     function setup()
     {
-        // global $player1;
-        // global $player2;
-        // global $player3;
-        // global $player4;
         
         global $shuffledCards, $numPlayers;
         
@@ -51,7 +48,7 @@
     
     function play()
     {
-        global $shuffledCards, $playerScores, $numPlayers;
+        global $shuffledCards, $playerScores, $numPlayers, $players;
         
         $player1 = array();
         $player2 = array();
@@ -59,8 +56,13 @@
         $player4 = array();
         
         
+        shuffle($players);
+        
         for ($i = 1; $i<=$numPlayers; $i++)
         {
+            echo '<div class="player">';
+            
+            // Deal cards until player's hand is greater than or equal to 42
             ${'player'.$i.'total'} = 0;
             while (${'player'.$i.'total'} < 42)
             {
@@ -68,8 +70,16 @@
                 array_push(${'player'.$i}, $tempCard);
                 ${'player'.$i.'total'} += $tempCard["value"];
             }
-            print(${'player'.$i.'total'});
             
+            
+            // Display name and picture
+            $imgPath = "./img/".$players[$i-1].".jpg";
+            echo "<div class='name'>".$players[$i-1]."</div>";
+            echo "<span class='picture'><img src='$imgPath' class='avatar' /></span>";
+            
+            
+            // Display cards
+            echo "<span class='cards'>";
             for ($card = 0; $card < count(${'player'.$i}); $card++)
             {
                 $image = ${'player'.$i}[$card]['image'];
@@ -77,8 +87,18 @@
                 $path = $image.$value.".png";
                 echo "<img src=$path />";
             }
-            print("<br/>");
+            echo "</span>";
+            
+            
+            // Display score
+            echo "<span class='score'>";
+            echo ${'player'.$i.'total'};
             $playerScore["player".$i] = ${'player'.$i.'total'};
+            echo "</span>";
+            echo "</div>";
+            
+            // Line thing
+            echo "<hr />";
         }
     }
 ?>

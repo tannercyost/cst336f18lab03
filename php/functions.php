@@ -100,5 +100,38 @@
             // Line thing
             echo "<hr />";
         }
+        
+        
+        // Calculate winners
+        $winners = array();
+        $exactWinner = false;
+        $minDistance = 42;
+        foreach ($playerScores as $name => $score)
+        {
+            if ($score == 42)
+            {
+                $exactWinner = true;
+                $winners[$name] = $score;
+            }
+        }
+        
+        if (!$exactWinner)
+        {
+            foreach ($playerScores as $name => $score)
+            {
+                if (42-$score < $minDistance && $score > 0)
+                {
+                    $winners[$name] = $score;
+                }
+            }
+        }
+        
+        foreach ($winners as $name => $score)
+        {
+            echo "$name ";
+        }
+        echo "wins!";
+        
+        // fuck you PHP, I've reached a dissasociative state with associative arrays
     }
 ?>

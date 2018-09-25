@@ -62,9 +62,9 @@
         {
             echo '<div class="player">';
             
-            // Deal cards until player's hand is greater than or equal to 42
+            // Deal cards until player's hand is greater than or equal to 34, so it won't overshoot literally all the time.
             ${'player'.$i.'total'} = 0;
-            while (${'player'.$i.'total'} < 42)
+            while (${'player'.$i.'total'} < 34)
             {
                 $tempCard =  array_pop($shuffledCards);
                 array_push(${'player'.$i}, $tempCard);
@@ -93,7 +93,7 @@
             // Display score
             echo "<span class='score'>";
             echo ${'player'.$i.'total'};
-            $playerScore["player".$i] = ${'player'.$i.'total'};
+            $playerScores['player'.$i] = ${'player'.$i.'total'};
             echo "</span>";
             echo "</div>";
             
@@ -101,11 +101,12 @@
             echo "<hr />";
         }
         
-        
         // Calculate winners
         $winners = array();
+        $points = array();
         $exactWinner = false;
         $minDistance = 42;
+        $lowestDist = 42;
         foreach ($playerScores as $name => $score)
         {
             if ($score == 42)
@@ -119,19 +120,33 @@
         {
             foreach ($playerScores as $name => $score)
             {
-                if (42-$score < $minDistance && $score > 0)
+                if (42-$score < $minDistance && 42-$score > 0)
                 {
-                    $winners[$name] = $score;
+                    if (42-$score <= $lowestDist) {
+                        if(in_array($score, $winners)) {
+                            $winners[$name] = $score;
+                        }
+                        else {
+                            $winners = array();
+                            $winners[$name] = $score;
+                            $lowestDist = 42-$score;
+                        }
+                    }
                 }
             }
+        }
+        
+        $totalGamePoints = 0;
+        foreach ($playerScores as $name => $score) {
+            $totalGamePoints += $score;
         }
         
         foreach ($winners as $name => $score)
         {
             echo "$name ";
+            echo "wins!<br />";
         }
-        echo "wins!";
-        
+
         // fuck you PHP, I've reached a dissasociative state with associative arrays
     }
 ?>

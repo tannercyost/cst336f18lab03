@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Yack Yack Silverjack</title>
     </head>
     
     <body>
         <?php 
-        
+            setup();
         ?>
         
         

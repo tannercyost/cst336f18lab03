@@ -3,6 +3,9 @@
     // $player2 = array();
     // $player3 = array();
     // $player4 = array();
+    $shuffledCards = array();
+    $playerScores = array();
+    $numPlayers = 4;
     
     // setup();
 
@@ -13,7 +16,7 @@
         // global $player3;
         // global $player4;
         
-        $numPlayers = 4;
+        global $shuffledCards, $numPlayers;
         
         $cards = array();
         for ($i = 0; $i < 13; $i++)
@@ -36,13 +39,19 @@
             $cards[$i+39] = array("suit" => "diamonds", "image" => "./cards/diamonds/", "value" => $i+1);
         }
         
-        $shuffledCards = array();
         for ($i = 51; $i>=0; $i=$i-1)
         {
             $index = rand(0,$i);
             $shuffledCards[$i] = $cards[$index];
             array_splice($cards, $index, 1);
         }
+    }
+    
+    
+    
+    function play()
+    {
+        global $shuffledCards, $playerScores, $numPlayers;
         
         $player1 = array();
         $player2 = array();
@@ -69,6 +78,7 @@
                 echo "<img src=$path />";
             }
             print("<br/>");
+            $playerScore["player".$i] = ${'player'.$i.'total'};
         }
     }
 ?>

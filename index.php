@@ -9,6 +9,7 @@
     <body>
         <?php 
             setup();
+            play();
         ?>
         
         

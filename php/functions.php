@@ -143,8 +143,18 @@
         
         foreach ($winners as $name => $score)
         {
-            echo "$name ";
-            echo "wins!<br />";
+            switch ($name) {
+            case "player1": echo $players[0];
+                            break;
+            case "player2": echo $players[1];
+                            break;
+            case "player3": echo $players[2];
+                            break;
+            case "player4": echo $players[3];
+                            break;  
+            }
+                            
+            echo " wins!<br />";
         }
 
         // fuck you PHP, I've reached a dissasociative state with associative arrays

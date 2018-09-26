@@ -6,9 +6,7 @@
     $shuffledCards = array();
     $playerScores = array();
     $numPlayers = 4;
-    $players = array("Who", "What", "I Don't Know", "Why");
-    
-    // setup();
+    $players = array("Who", "What", "IDK", "Why");
 
     function setup()
     {
@@ -96,12 +94,10 @@
             $playerScores['player'.$i] = ${'player'.$i.'total'};
             echo "</span>";
             echo "</div>";
-            
-            // Line thing
-            echo "<hr />";
         }
         
         // Calculate winners
+        echo "<hr />";
         $winners = array();
         $points = array();
         $exactWinner = false;
@@ -140,9 +136,11 @@
         foreach ($playerScores as $name => $score) {
             $totalGamePoints += $score;
         }
-        
+        echo "<div id='winners'>";
+        $winCount = 1;
         foreach ($winners as $name => $score)
         {
+            $totalGamePoints -= $score;
             switch ($name) {
             case "player1": echo $players[0];
                             break;
@@ -154,9 +152,21 @@
                             break;  
             }
                             
-            echo " wins!<br />";
+            if (count($winners) == 1)
+            {
+                echo " wins with $totalGamePoints points!";
+            }
+            else if (count($winners)>1 && $winCount < count($winners))
+            {
+                echo ", ";
+            }
+            $winCount++;
         }
-
-        // fuck you PHP, I've reached a dissasociative state with associative arrays
+        if (count($winners)>1)
+        {
+            $perPersonPoints = $totalGamePoints / count($winners);
+            echo " win with $perPersonPoints points each!";
+        }
+        echo "</div><hr />";
     }
 ?>

@@ -1,5 +1,20 @@
 body {
     font-family: arial;
+    background-color: #696969;
+    color: #4b4dad;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0px;
+    text-shadow: -1px -1px #ff0000;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 0px;
+    text-shadow: 2px 2px #ff0000;
 }
 
 .player {
@@ -15,8 +30,15 @@ body {
     margin-left: 40px;
 }
 
-.picture {
-    /*display: inline-block;*/
+#winners {
+    font-size: 3em;
+    text-align: center;
+    background-color: red;
+    padding: 20px;
+    font-weight: bold;
+    outline: 5px solid green;
+    margin-top: 20px;
+    margin-bottom: 20px
 }
 
 .name {
@@ -31,4 +53,22 @@ body {
 
 .cards {
     margin-left: 30px;
+}
+
+#stats {
+    font-size: 1.2em;
+    color: white;
+}
+
+.button {
+    background-color: #f000ff;
+    border: 2px solid white;
+    color: #fff600;
+    padding: 15px;
+    text-align: center;
+    font-size: 44px;
+}
+
+#buttonspace {
+    text-align: center;
 }

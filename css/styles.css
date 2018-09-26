@@ -4,6 +4,12 @@ body {
     color: #4b4dad;
 }
 
+h3 {
+    text-align: center;
+    margin-top: 0px;
+    text-shadow: -1px -1px #444444;
+}
+
 h2 {
     text-align: center;
     margin-top: 0px;
@@ -39,7 +45,7 @@ h1 {
     font-weight: bold;
     outline: 5px solid #b000b5;
     margin-top: 20px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 
 .name {

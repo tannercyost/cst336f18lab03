@@ -29,6 +29,7 @@
     <body>
         <h1>Yack Yack Silverjack</h1>
         <h2>Could there be a worse name?</h2>
+        <h3>by Sutter Laird and Tanner Yost</h3>
         <?php 
             setup();
             play();

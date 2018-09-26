@@ -94,6 +94,7 @@
             $playerScores['player'.$i] = ${'player'.$i.'total'};
             echo "</span>";
             echo "</div>";
+            echo "<br />";
         }
         
         // Calculate winners
